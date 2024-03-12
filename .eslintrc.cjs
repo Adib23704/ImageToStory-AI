@@ -2,8 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
-    module: true,
+    node: true
   },
   extends: 'airbnb-base',
   overrides: [
@@ -28,7 +27,9 @@ module.exports = {
     'no-console': 'off',
     'no-param-reassign': 'off',
     'no-shadow': 'off',
+    "import/extensions": ['error', "always"],
     'indent': ['error', 'tab'],
-    'no-tabs': ['error', { allowIndentationTabs: true }]
+    'no-tabs': ['error', { allowIndentationTabs: true }],
+    'no-dangling-underscores': 'off',
   },
 };

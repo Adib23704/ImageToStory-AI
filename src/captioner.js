@@ -1,7 +1,8 @@
-import 'dotenv/config';
+import dotenvFlow from 'dotenv-flow';
 import { HfInference } from '@huggingface/inference';
 import fs from 'fs';
 
+dotenvFlow.config();
 const hgInference = new HfInference(process.env.HUGGINGFACE_TOKEN);
 
 async function captioner(img) {
