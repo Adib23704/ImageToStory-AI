@@ -1,0 +1,23 @@
+{
+  "name": "imagetostory-ai",
+  "version": "1.0.0",
+  "description": "Generate a good story based on a single image.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adib23704/ImageToStory-AI.git"
+  },
+  "author": "Adib23704",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adib23704/ImageToStory-AI/issues"
+  },
+  "homepage": "https://github.com/Adib23704/ImageToStory-AI#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "type": "module"
+}
