@@ -1,15 +1,14 @@
-import 'dotenv/config';
-import { HfInference } from '@huggingface/inference';
-import fs from 'fs';
-
-const hgInference = new HfInference(process.env.HUGGINGFACE_TOKEN);
+import captioner from './captioner.js';
+import generateStory from './story.js';
 
 async function app() {
-	const output = await hgInference.imageToText({
-		data: fs.readFileSync('./img/img.png'),
-		model: 'Salesforce/blip-image-captioning-base',
+	captioner('./img/img.png').then((output) => {
+		console.log('output :>> ', output);
+
+		generateStory(output).then((story) => {
+			console.log('story :>> ', story.content);
+		});
 	});
-	console.log('output :>> ', output);
 }
 
 app();
