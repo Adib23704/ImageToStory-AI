@@ -1,0 +1,109 @@
+body {
+	background-color: #1f1f1f;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+header {
+	padding: 30px;
+}
+
+.header-container {
+	text-align: center;
+}
+
+.header-container h1 {
+	margin: 0;
+	font-size: 35px;
+	font-weight: 700;
+	/* Applying bold font weight */
+
+}
+
+.header-container h2 {
+	margin: 5px 0 0;
+	font-size: 18px;
+	color: #999;
+	font-weight: 400;
+	/* Applying normal font weight */
+
+}
+
+.main-container {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.image-preview {
+	text-align: center;
+	/* Center-align content */
+}
+
+/* Preview image styles */
+#previewImage {
+	max-width: 100%;
+	max-height: 300px;
+	display: none;
+	/* Hide image by default */
+	border-radius: 5px;
+	margin: 0 auto;
+	/* Center-align the image */
+	box-shadow: 0 0px 15px rgba(175, 171, 171, 0.1);
+	/* Add shadow */
+}
+
+
+#imageUpload {
+	margin-bottom: 20px;
+	display: none;
+	/* Hide default file input */
+}
+
+/* Custom file input button styles */
+.file-input-label {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.file-input-label:hover {
+	background-color: #0056b3;
+}
+
+/* Hidden file input styles */
+#imageUpload[type="file"] {
+	position: absolute;
+	left: -9999px;
+}
+
+.watermark {
+	position: fixed;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(53, 53, 53, 0.442);
+	padding: 3px 12px;
+	border-radius: 3px;
+	backdrop-filter: blur(5px);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+	font-weight: bold;
+}
+
+.watermark a {
+	text-decoration: none;
+	color: #3396ff;
+}
+
+.watermark:hover {
+	background-color: rgba(63, 63, 63, 0.442);
+	transform: translateX(-50%) scale(1.18);
+}

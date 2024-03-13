@@ -7,8 +7,8 @@ const app = express();
 const port = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static('../public'));
-app.set('views', '../views');
+app.use(express.static('./public'));
+app.set('views', './views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
