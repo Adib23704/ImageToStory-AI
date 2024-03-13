@@ -1,11 +1,12 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+import multer from 'multer';
+import path from 'path';
+
 import captioner from './captioner.js';
 import generateStory from './story.js';
 
 const app = express();
 const port = process.env.PORT;
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('./public'));
 app.set('views', './views');
@@ -15,15 +16,37 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
+const storage = multer.diskStorage({
+	destination(req, file, cb) {
+		cb(null, './img');
+	},
+	filename(req, file, cb) {
+		cb(null, Date.now() + path.extname(file.originalname));
+	},
+});
+const upload = multer({ storage });
+
+app.post('/generate', upload.single('image'), (req, res) => {
+	try {
+		if (!req.file) {
+			throw new Error('No file uploaded');
+		}
+
+		captioner(`./img/${req.file.filename}`).then((output) => {
+			console.log('output :>> ', output);
+
+			generateStory(output).then((story) => {
+				console.log('story :>> ', story.content);
+			});
+		});
+	} catch (error) {
+		res.status(400).json({ success: false, message: error.message });
+	}
+
+	return true;
+});
+
 async function main() {
-	// captioner('./img/img.png').then((output) => {
-	// 	console.log('output :>> ', output);
-
-	// 	generateStory(output).then((story) => {
-	// 		console.log('story :>> ', story.content);
-	// 	});
-	// });
-
 	app.listen(port, () => {
 		console.log(`Server Running on port http://localhost:${port}`);
 	});

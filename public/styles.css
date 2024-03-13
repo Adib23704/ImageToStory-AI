@@ -18,8 +18,6 @@ header {
 	margin: 0;
 	font-size: 35px;
 	font-weight: 700;
-	/* Applying bold font weight */
-
 }
 
 .header-container h2 {
@@ -27,8 +25,6 @@ header {
 	font-size: 18px;
 	color: #999;
 	font-weight: 400;
-	/* Applying normal font weight */
-
 }
 
 .main-container {
@@ -38,30 +34,22 @@ header {
 
 .image-preview {
 	text-align: center;
-	/* Center-align content */
 }
 
-/* Preview image styles */
 #previewImage {
 	max-width: 100%;
 	max-height: 300px;
 	display: none;
-	/* Hide image by default */
 	border-radius: 5px;
 	margin: 0 auto;
-	/* Center-align the image */
-	box-shadow: 0 0px 15px rgba(175, 171, 171, 0.1);
-	/* Add shadow */
 }
 
 
 #imageUpload {
 	margin-bottom: 20px;
 	display: none;
-	/* Hide default file input */
 }
 
-/* Custom file input button styles */
 .file-input-label {
 	display: inline-block;
 	padding: 10px 20px;
@@ -76,7 +64,6 @@ header {
 	background-color: #0056b3;
 }
 
-/* Hidden file input styles */
 #imageUpload[type="file"] {
 	position: absolute;
 	left: -9999px;
