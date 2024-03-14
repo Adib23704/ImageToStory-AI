@@ -33,7 +33,11 @@ app.post('/generate', upload.single('image'), (req, res) => {
 
 		captioner(`./img/${req.file.filename}`).then((output) => {
 			generateStory(output).then((story) => {
-				res.status(200).json({ ok: true, story: story.content, caption: output });
+				res.status(200).json({
+					ok: true,
+					story: story.content,
+					caption: output,
+				});
 			});
 		});
 	} catch (error) {
