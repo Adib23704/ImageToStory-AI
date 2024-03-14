@@ -1,6 +1,5 @@
 import express from 'express';
 import multer from 'multer';
-import { exec } from 'child_process';
 
 import captioner from './captioner.js';
 import generateStory from './story.js';
@@ -47,7 +46,6 @@ app.post('/generate', upload.single('image'), (req, res) => {
 async function main() {
 	app.listen(port, () => {
 		console.log(`Server Running on port http://localhost:${port}`);
-		// exec(`start "" http://localhost:${port}`);
 	});
 }
 
