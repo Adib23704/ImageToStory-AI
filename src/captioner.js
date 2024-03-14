@@ -10,6 +10,9 @@ async function captioner(img) {
 		data: fs.readFileSync(img),
 		model: 'Salesforce/blip-image-captioning-base',
 	});
+	if (fs.existsSync(img)) {
+		fs.rmSync(img);
+	}
 	return output.generated_text;
 }
 
