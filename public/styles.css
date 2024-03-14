@@ -3,7 +3,8 @@ body {
 	color: #fff;
 	margin: 0;
 	padding: 0;
-	font-family: 'Roboto', sans-serif;
+	font-family: "Poppins", sans-serif;
+	font-style: normal;
 }
 
 header {
@@ -24,7 +25,12 @@ header {
 	margin: 5px 0 0;
 	font-size: 18px;
 	color: #999;
-	font-weight: 400;
+	font-weight: 500;
+}
+
+.header-container a {
+	text-decoration: none;
+	color: #c0c0c0;
 }
 
 .main-container {
@@ -82,7 +88,7 @@ header {
 	backdrop-filter: blur(5px);
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 .watermark a {
@@ -93,4 +99,10 @@ header {
 .watermark:hover {
 	background-color: rgba(63, 63, 63, 0.442);
 	transform: translateX(-50%) scale(1.18);
+}
+
+.gen-text {
+	margin-top: 10px;
+	color: #fff;
+	text-wrap: balance;
 }

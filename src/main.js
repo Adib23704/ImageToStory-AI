@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import path from 'path';
+import { exec } from 'child_process';
 
 import captioner from './captioner.js';
 import generateStory from './story.js';
@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 		cb(null, './img');
 	},
 	filename(req, file, cb) {
-		cb(null, Date.now() + path.extname(file.originalname));
+		cb(null, `${Date.now()}.png`);
 	},
 });
 const upload = multer({ storage });
@@ -33,10 +33,8 @@ app.post('/generate', upload.single('image'), (req, res) => {
 		}
 
 		captioner(`./img/${req.file.filename}`).then((output) => {
-			console.log('output :>> ', output);
-
 			generateStory(output).then((story) => {
-				console.log('story :>> ', story.content);
+				res.status(200).json({ ok: true, story: story.content, caption: output });
 			});
 		});
 	} catch (error) {
@@ -49,6 +47,7 @@ app.post('/generate', upload.single('image'), (req, res) => {
 async function main() {
 	app.listen(port, () => {
 		console.log(`Server Running on port http://localhost:${port}`);
+		// exec(`start "" http://localhost:${port}`);
 	});
 }
 
