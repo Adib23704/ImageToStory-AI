@@ -31,16 +31,20 @@ app.post('/generate', upload.single('image'), (req, res) => {
 		if (!req.file) {
 			throw new Error('No file uploaded');
 		}
-		console.log('Received file, procceding to generate story.');
+		console.log('Received file, procceding to generate story.\n');
 
 		captioner(`./img/${req.file.filename}`).then((output) => {
-			console.log(`Caption generated: ${output}`);
+			console.log(`Caption generated: ${output}\n`);
+
 			generateStory(output).then((story) => {
-				console.log(`Story generated: ${story.content}`);
+				console.log(`Story generated: ${story.content}\n`);
+
 				if (fs.existsSync(`./img/${req.file.filename}`)) {
 					fs.rmSync(`./img/${req.file.filename}`);
-					console.log('Deleted the image file.');
+
+					console.log('Deleted the image file.\n');
 				}
+
 				res.status(200).json({
 					ok: true,
 					story: story.content,
