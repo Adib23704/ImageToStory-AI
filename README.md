@@ -35,6 +35,7 @@ Image2Story AI is a web application that generates stories based on images using
    - Make a copy of `.env.example` file.
    - Rename the copied file to `.env`
    - Open the file using notepad and configure the required values.
+   - __Optional:__ You may change the `API_URL` variable in `/public/script.js` if you are deploying the web under a domain/server.
 
 4. Start the server:
 

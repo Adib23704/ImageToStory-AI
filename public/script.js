@@ -1,3 +1,4 @@
+// Change this to the server URL when deploying. Only change the http://localhost:8080 part.
 const API_URL = 'http://localhost:8080/generate';
 
 const imageUpload = document.getElementById('imageUpload');

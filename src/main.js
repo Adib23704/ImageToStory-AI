@@ -1,5 +1,6 @@
 import express from 'express';
 import multer from 'multer';
+import fs from 'fs';
 
 import captioner from './captioner.js';
 import generateStory from './story.js';
@@ -30,9 +31,16 @@ app.post('/generate', upload.single('image'), (req, res) => {
 		if (!req.file) {
 			throw new Error('No file uploaded');
 		}
+		console.log('Received file, procceding to generate story.');
 
 		captioner(`./img/${req.file.filename}`).then((output) => {
+			console.log(`Caption generated: ${output}`);
 			generateStory(output).then((story) => {
+				console.log(`Story generated: ${story.content}`);
+				if (fs.existsSync(`./img/${req.file.filename}`)) {
+					fs.rmSync(`./img/${req.file.filename}`);
+					console.log('Deleted the image file.');
+				}
 				res.status(200).json({
 					ok: true,
 					story: story.content,
