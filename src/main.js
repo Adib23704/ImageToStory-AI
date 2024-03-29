@@ -1,6 +1,8 @@
 import express from 'express';
 import multer from 'multer';
 import fs from 'fs';
+import dotenvFlow from 'dotenv-flow';
+dotenvFlow.config();
 
 import captioner from './captioner.js';
 import generateStory from './story.js';
