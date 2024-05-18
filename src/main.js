@@ -2,10 +2,11 @@ import express from 'express';
 import multer from 'multer';
 import fs from 'fs';
 import dotenvFlow from 'dotenv-flow';
-dotenvFlow.config();
 
 import captioner from './captioner.js';
 import generateStory from './story.js';
+
+dotenvFlow.config();
 
 const app = express();
 const port = process.env.PORT;

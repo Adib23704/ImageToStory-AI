@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "format": "prettier --write \"src/*.js\" \"public/*.js\"",
-    "lint": "eslint \"src/*.js\" \"public/*.js\" --fix"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "repository": {
     "type": "git",
